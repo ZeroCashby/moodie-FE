@@ -7,6 +7,7 @@ import ProjectExplorer from './containers/ProjectExplorer';
 import * as projectActions from './actions/projectActions';
 
 import AppStyles from './App.scss';
+import EditBoard from './containers/EditBoard';
 
 class App extends Component {
 
@@ -31,9 +32,12 @@ class App extends Component {
     });
 
     return (
-      <section className={AppStyles['flex-row']}>
-        <ProjectExplorer projects={this.props.projects} clickHandler={this.projectClickHandler} />
-        {project.length && <Project project={project[0]}/>}
+      // <section className={AppStyles['flex-row']}>
+      //   <ProjectExplorer projects={this.props.projects} clickHandler={this.projectClickHandler} />
+      //   {project.length && <Project project={project[0]}/>}
+      // </section>
+      <section>
+        <EditBoard />
       </section>
     );
   }

@@ -9,20 +9,20 @@ import AppStyles from '../../App.scss';
 import Styles from './styles.scss';
 
 
-const Project = () => {
+const Project = (props) => {
     return (
-        <section>
-            <section className={AppStyles['flex-row-sb']}>
-                <ProjectTitle />
-                <AccountSelector />
-            </section>
-            <Sort />
-            <section className={AppStyles['flex-wrap']}>
-                <Board />
-                <Board />
-                <Board />
-            </section>
-        </section>
+            <section>
+                <section className={AppStyles['flex-row-sb']}>
+                    <ProjectTitle name={props.project.name} />
+                    <AccountSelector />
+                </section>
+                <Sort />
+                <section className={AppStyles['flex-wrap']}>
+                    {props.project.boards.map(board => {
+                        return <Board data={board} />
+                    })}
+                </section>
+            </section>  
     );
 }
  

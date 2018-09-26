@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -8,6 +9,7 @@ import * as projectActions from './actions/projectActions';
 
 import AppStyles from './App.scss';
 import EditBoard from './containers/EditBoard';
+import User from './containers/User';
 
 class App extends Component {
 
@@ -32,13 +34,16 @@ class App extends Component {
     });
 
     return (
-      // <section className={AppStyles['flex-row']}>
-      //   <ProjectExplorer projects={this.props.projects} clickHandler={this.projectClickHandler} />
-      //   {project.length && <Project project={project[0]}/>}
-      // </section>
-      <section>
-        <EditBoard />
-      </section>
+        // <section className={AppStyles['flex-row']}>
+        //   <ProjectExplorer projects={this.props.projects} clickHandler={this.projectClickHandler} />
+        //   {project.length && <Project project={project[0]}/>}
+        // </section>
+      <BrowserRouter>
+        <section>
+          <EditBoard />
+          <User />
+        </section>
+      </BrowserRouter>
     );
   }
 }

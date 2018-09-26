@@ -32,3 +32,39 @@ export function fetchProjects() {
         });
     }
 }
+
+export function signup(email, password) {
+    return dispatch => {
+        fetch(`${domain}/user/signup`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            body: JSON.stringify({ email: email, password: password })
+        })
+        .then(response =>
+            response.json().then(data => {
+                console.log(data);
+            })
+        )
+    }
+}
+
+export function login(email, password) {
+    return dispatch => {
+        fetch(`${domain}/user/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            body: JSON.stringify({ email: email, password: password })
+        })
+        .then(response =>
+            response.json().then(data => {
+                console.log(data);
+            })
+        )
+    }
+}
